@@ -1,0 +1,165 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTHENTICATION</title>
+    <link rel="stylesheet" href="{% static 'pinCSS.css' %}">
+
+</head>
+
+<body>
+
+    <!-- popup alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {% for msg in messages %}
+    <script>
+        swal('{{ msg }}');
+
+    </script>
+    {% endfor %}
+
+    <!-- countdown timer -->
+    <p id="timer"> </p>
+
+    <script>
+        var seconds = ""
+        var out = false
+        var timeOut
+
+        document.getElementById("timer").innerHTML = window.seconds;
+
+        function outside() {
+            out = true
+            console.log("I am in out")
+            //console.log(out)
+            //clearTimeout(timeOut)
+            seconds = ""
+            document.getElementById("timer").innerHTML = window.seconds;
+        }
+
+        async function over(funct) {
+            out = false
+            console.log("I am in over")
+
+            if (out) {
+                console.log("1111111")
+                return
+            }
+
+            for (var i = 3; i > 0; i--) {
+                //console.log(out)
+                //timeOut = await delay(20)
+                if (out) {
+                    console.log("222222222")
+                    return
+                }
+                //timeOut = await delay(20)
+
+                seconds = i + "";
+                if (out) {
+                    console.log("3333333")
+                    return
+                }
+                //timeOut = await delay(20)
+
+                if (out) {
+                    console.log("4444444")
+                    return
+                }
+                document.getElementById("timer").innerHTML = window.seconds;
+
+                for (var j = 0; j < 100; j++) {
+                    timeOut = await delay(10)
+                    if (out) {
+                        console.log("5555555")
+                        return
+                    }
+                }
+
+
+            }
+            if (out) {
+                console.log("6666666")
+                return
+            }
+            location.href = funct
+            if (out) {
+                console.log("777777")
+                return
+            }
+        }
+
+        async function delay(delayInms) {
+            return new Promise(resolve => { setTimeout(() => { resolve(2); }, delayInms); });
+        }
+
+
+
+
+
+    </script>
+
+    <p id="titlePass">
+
+        PLEASE ENTER YOUR PASSWORD!
+
+    </p>
+
+    <!-- pins and labels -->
+    <div id="wrap">
+
+
+
+        <ul id="display">
+            <li>{{first}}</li>
+            <li>{{second}}</li>
+            <li>{{third}}</li>
+            <li>{{fourth}}</li>
+            <div class="clear"></div>
+        </ul>
+        <ul id="numpad">
+            <button class="button" onclick="location.href='onePass'" onmouseout="outside();"
+                onmouseover="over('onePass')">1</button>
+            <button class="button" onclick="location.href='twoPass'" onmouseout="outside()"
+                onmouseover="over('twoPass')">2</button>
+            <button class="button" onclick="location.href='threePass'" onmouseout="outside()"
+                onmouseover="over('threePass')">3</button>
+            <button class="button" onclick="location.href='fourPass'" onmouseout="outside()"
+                onmouseover="over('fourPass')">4</button>
+            <button class="button" onclick="location.href='fivePass'" onmouseout="outside()"
+                onmouseover="over('fivePass')">5</button>
+            <button class="button" onclick="location.href='sixPass'" onmouseout="outside()"
+                onmouseover="over('sixPass')">6</button>
+            <button class="button" onclick="location.href='sevenPass'" onmouseout="outside()"
+                onmouseover="over('sevenPass')">7</button>
+            <button class="button" onclick="location.href='eightPass'" onmouseout="outside()"
+                onmouseover="over('eightPass')">8</button>
+            <button class="button" onclick="location.href='ninePass'" onmouseout="outside()"
+                onmouseover="over('ninePass')">9</button>
+            <button class="button" onclick="location.href='clearPass'" onmouseout="outside()"
+                onmouseover="over('clearPass')">C</button>
+            <button class="button" onclick="location.href='zeroPass'" onmouseout="outside()"
+                onmouseover="over('zeroPass')">0</button>
+            <button class="button" onclick="location.href='enterPass'" onmouseout="outside()"
+                onmouseover="over('enterPass')">E</button>
+        </ul>
+    </div>
+
+    <!-- INCORRECT PASSWORD! -->
+    <!-- PASSWORD IS MISSING! -->
+    <!-- PASSWORD IS FULL! -->
+
+    <p id="password">
+        {{error}}
+    </p>
+
+
+</body>
+
+</html>
