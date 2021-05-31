@@ -1,0 +1,101 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPTIONS</title>
+    <link rel="stylesheet" href="{% static 'pinCSS.css' %}">
+
+
+</head>
+
+<body>
+    
+    <!-- countdown timer -->    
+    <div id="timer"> </div>
+
+    <script>
+        var seconds = ""
+        var out = false
+        var timeOut
+
+        document.getElementById("timer").innerHTML = window.seconds;
+
+        function outside() {
+            out = true
+
+            seconds = ""
+            document.getElementById("timer").innerHTML = window.seconds;
+        }
+
+        async function over(funct) {
+            out = false
+
+            if (out) {
+                return
+            }
+
+            for (var i = 3; i > 0; i--) {
+                if (out) {
+                    return
+                }
+
+                seconds = i + "";
+                if (out) {
+                    return
+                }
+
+                if (out) {
+                    return
+                }
+
+                document.getElementById("timer").innerHTML = window.seconds;
+
+                for (var j = 0; j < 100; j++) {
+                    timeOut = await delay(10)
+                    if (out) {
+                        return
+                    }
+                }
+
+
+            }
+            if (out) {
+                return
+            }
+            location.href = funct
+            if (out) {
+                return
+            }
+        }
+
+        async function delay(delayInms) {
+            return new Promise(resolve => { setTimeout(() => { resolve(2); }, delayInms); });
+        }
+
+        
+
+
+
+    </script>
+
+    <div class="group">
+        <button class="verticalButton margin1" onclick="location.href='withdraw'" onmouseout="outside();"
+        onmouseover="over('withdraw')">WITHDRAW</button> 
+        <button class="verticalButton margin2" onclick="location.href='deposit'" onmouseout="outside();"
+        onmouseover="over('deposit')">DEPOSIT</button> 
+        <button class="verticalButton margin3" onclick="location.href='balance'" onmouseout="outside();"
+        onmouseover="over('balance')">VIEW BALANCE</button> 
+        <button class="verticalButton margin4" onclick="location.href='/'" onmouseout="outside();"
+        onmouseover="over('/')">EXIT</button> 
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+/* Reset */
+
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-image: url('images/atm_3.jpg');
+    background-repeat:no-repeat;
+  }
+  
+  body {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    /* -webkit-user-select: none; */
+    font-size: 12px;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    
+  }
+    
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #wrap {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 890px;
+    margin-left: -100px;
+    margin-top: -150px;
+  }
+  
+  #display {
+    position: relative;
+    top: -20px;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #00d881;
+  }
+  
+  #numpad {
+    position: fixed;
+  }
+  #numpad2 {
+    position: fixed;
+    margin-left: 250px;
+    margin-top: 130px;
+  }
+  
+  #numpad3 {
+    position: fixed;
+    margin-left: 220px;
+    margin-top: 280px;
+  }
+
+  #numpad4 {
+    position: fixed;
+    margin-left: 700px;
+    margin-top: -130px;
+  }
+
+
+  #display li {
+    display: inline-block;
+    font-family: monospace;
+    font-size: 200%;
+    padding: 5px 12px;
+    background:#8398b7;
+    color: black;
+    margin-right: 1px;
+  }
+  
+  #numpad li {
+    font-family: monospace;
+    font-size: 200%;
+    border-radius: 51%;
+    float: left;
+    padding: 12px 20px;
+    background: #00d881;
+    color: black;
+    margin: 5px;
+    cursor: pointer;
+    -webkit-transition: box-shadow 0.3s ease-in-out;
+    -moz-transition: box-shadow 0.3s ease-in-out;
+    -o-transition: box-shadow 0.3s ease-in-out;
+    -ms-transition: box-shadow 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+ 
+  
+  .pressed {
+    box-shadow: inset 2px 2px 12px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .clear {
+    clear: both;
+  }
+  
+  .button {
+    background-color: #4CAF50; /* Green */
+    border: groove;
+    color: #8398b7;
+    padding: 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 42px;
+    margin: 7px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+  
+  }
+
+  .back {
+    margin: -25px 75px;
+    padding: 16px;
+    font-size: 27px;
+  }
+  
+  .button:hover{
+    background: #525252;
+  
+  }
+  
+  .button:focus{
+    box-shadow: inset 2px 2px 12px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  #timer {
+    font-size: 6em;
+    font-weight: 100;
+    color: #525252;
+    text-shadow: 0 0 20px #95dff1;
+    padding: 20px;
+  } 
+  
+
+  #text {
+    font-size: 23px;
+    margin-left: 35px;
+    margin-top: -20px;
+    font-weight: bold;
+  }
+  
+  #error {
+    position: absolute;
+    font-size: 13px;
+    margin-left: 43.5%;
+    margin-top: -22px;
+    font-weight: bold;
+    color: red;
+  } 
+  
+  #success {
+    position: absolute;
+    font-size: 20px;
+    margin-left: 26%;
+    margin-top: 50%;
+    font-weight: bold;
+    color: green;
+  } 
+ 

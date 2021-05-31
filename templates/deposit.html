@@ -1,0 +1,161 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEPOSIT</title>
+    <link rel="stylesheet" href="{% static 'withdraw.css' %}">
+
+
+</head>
+
+<body>
+
+    <!-- countdown timer -->
+    <div id="timer"> </div>
+
+    <script>
+        var seconds = ""
+        var out = false
+        var timeOut
+
+        document.getElementById("timer").innerHTML = window.seconds;
+
+        function outside() {
+            out = true
+
+            seconds = ""
+            document.getElementById("timer").innerHTML = window.seconds;
+        }
+
+        async function over(funct) {
+            out = false
+
+            if (out) {
+                return
+            }
+
+            for (var i = 3; i > 0; i--) {
+                if (out) {
+                    return
+                }
+
+                seconds = i + "";
+                if (out) {
+                    return
+                }
+
+                if (out) {
+                    return
+                }
+
+                document.getElementById("timer").innerHTML = window.seconds;
+
+                for (var j = 0; j < 100; j++) {
+                    timeOut = await delay(10)
+                    if (out) {
+                        return
+                    }
+                }
+
+
+            }
+            if (out) {
+                return
+            }
+            location.href = funct
+            if (out) {
+                return
+            }
+        }
+
+        async function delay(delayInms) {
+            return new Promise(resolve => { setTimeout(() => { resolve(2); }, delayInms); });
+        }
+
+    </script>
+
+    <!-- pins and labels -->
+    <div id="wrap">
+
+        <p id="text">
+
+            PLEASE ENTER THE AMOUNT YOU WANT TO DEPOSIT!
+    
+        </p>
+
+        <ul id="display">
+            <li>{{first}}</li>
+            <li>{{second}}</li>
+            <li>{{third}}</li>
+            <li>{{fourth}}</li>
+            <div class="clear"></div>
+        </ul>
+        <ul id="numpad">
+            <button class="button" onclick="location.href='oneDeposit'" onmouseout="outside();"
+                onmouseover="over('oneDeposit')">1</button>
+            <button class="button" onclick="location.href='twoDeposit'" onmouseout="outside()"
+                onmouseover="over('twoDeposit')">2</button>
+            <button class="button" onclick="location.href='threeDeposit'" onmouseout="outside()"
+                onmouseover="over('threeDeposit')">3</button>
+            <button class="button" onclick="location.href='fourDeposit'" onmouseout="outside()"
+                onmouseover="over('fourDeposit')">4</button>
+            <button class="button" onclick="location.href='fiveDeposit'" onmouseout="outside()"
+                onmouseover="over('fiveDeposit')">5</button>
+            <button class="button" onclick="location.href='sixDeposit'" onmouseout="outside()"
+                onmouseover="over('sixDeposit')">6</button>
+            <button class="button" onclick="location.href='sevenDeposit'" onmouseout="outside()"
+                onmouseover="over('sevenDeposit')">7</button>
+            <button class="button" onclick="location.href='eightDeposit'" onmouseout="outside()"
+                onmouseover="over('eightDeposit')">8</button>
+            <button class="button" onclick="location.href='nineDeposit'" onmouseout="outside()"
+                onmouseover="over('nineDeposit')">9</button>
+
+        </ul>
+        
+        <ul id="numpad2"> 
+            <button class="button" onclick="location.href='zeroDeposit'" onmouseout="outside()"
+                onmouseover="over('zeroDeposit')">0</button>
+            <button class="button" onclick="location.href='twoZeroDeposit'" onmouseout="outside()"
+                onmouseover="over('twoZeroDeposit')">00</button>
+            <button class="button" onclick="location.href='threeZeroDeposit'" onmouseout="outside()"
+                onmouseover="over('threeZeroDeposit')">000</button>
+
+        </ul>
+
+        <ul id="numpad3"> 
+            <button class="button" onclick="location.href='clearDeposit'" onmouseout="outside()"
+                onmouseover="over('clearDeposit')">CLEAR</button>
+            <button class="button" onclick="location.href='enterDeposit'" onmouseout="outside()"
+                onmouseover="over('enterDeposit')">ENTER</button>
+            
+        </ul>
+
+        <ul id="numpad4"> 
+            <button class="button back" onclick="location.href='backDeposit'" onmouseout="outside()"
+                onmouseover="over('backDeposit')">BACK</button>
+           
+        </ul>
+        
+        <p id="error">
+            {{error}}
+    
+        </p>
+    
+        <!-- AMOUNT IS ADDED TO YOUR BALANCE SUCCESSFULLY! -->
+        <p id="success">
+            {{success}}
+    
+        </p>
+
+    </div>
+
+
+</body>
+
+</html>

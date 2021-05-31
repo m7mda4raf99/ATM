@@ -1,0 +1,166 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="stylesheet" href="{% static 'pinCSS.css' %}">
+
+</head>
+
+<body>
+
+    <!-- popup alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {% for msg in messages %}
+    <script>
+        swal('{{ msg }}');
+
+    </script>
+    {% endfor %}
+
+    <!-- countdown timer -->
+    <p id="timer"> </p>
+
+    <script>
+        var seconds = ""
+        var out = false
+        var timeOut
+
+        document.getElementById("timer").innerHTML = window.seconds;
+
+        function outside() {
+            out = true
+            console.log("I am in out")
+            //console.log(out)
+            //clearTimeout(timeOut)
+            seconds = ""
+            document.getElementById("timer").innerHTML = window.seconds;
+        }
+
+        async function over(funct) {
+            out = false
+            console.log("I am in over")
+
+            if (out) {
+                console.log("1111111")
+                return
+            }
+
+            for (var i = 3; i > 0; i--) {
+                //console.log(out)
+                //timeOut = await delay(20)
+                if (out) {
+                    console.log("222222222")
+                    return
+                }
+                //timeOut = await delay(20)
+
+                seconds = i + "";
+                if (out) {
+                    console.log("3333333")
+                    return
+                }
+                //timeOut = await delay(20)
+
+                if (out) {
+                    console.log("4444444")
+                    return
+                }
+                document.getElementById("timer").innerHTML = window.seconds;
+
+                for (var j = 0; j < 100; j++) {
+                    timeOut = await delay(10)
+                    if (out) {
+                        console.log("5555555")
+                        return
+                    }
+                }
+
+
+            }
+            if (out) {
+                console.log("6666666")
+                return
+            }
+            location.href = funct
+            if (out) {
+                console.log("777777")
+                return
+            }
+        }
+
+        async function delay(delayInms) {
+            return new Promise(resolve => { setTimeout(() => { resolve(2); }, delayInms); });
+        }
+
+
+
+
+
+    </script>
+
+    <p id="title">
+
+        PLEASE ENTER YOUR CREDIT CARD NUMBER!
+
+    </p>
+
+    <!-- pins and labels -->
+    <div id="wrap">
+
+
+
+        <ul id="display">
+            <li>{{first}}</li>
+            <li>{{second}}</li>
+            <li>{{third}}</li>
+            <li>{{fourth}}</li>
+            <div class="clear"></div>
+        </ul>
+        <ul id="numpad">
+            <button class="button" onclick="location.href='one'" onmouseout="outside();"
+                onmouseover="over('one')">1</button>
+            <button class="button" onclick="location.href='two'" onmouseout="outside()"
+                onmouseover="over('two')">2</button>
+            <button class="button" onclick="location.href='three'" onmouseout="outside()"
+                onmouseover="over('three')">3</button>
+            <button class="button" onclick="location.href='four'" onmouseout="outside()"
+                onmouseover="over('four')">4</button>
+            <button class="button" onclick="location.href='five'" onmouseout="outside()"
+                onmouseover="over('five')">5</button>
+            <button class="button" onclick="location.href='six'" onmouseout="outside()"
+                onmouseover="over('six')">6</button>
+            <button class="button" onclick="location.href='seven'" onmouseout="outside()"
+                onmouseover="over('seven')">7</button>
+            <button class="button" onclick="location.href='eight'" onmouseout="outside()"
+                onmouseover="over('eight')">8</button>
+            <button class="button" onclick="location.href='nine'" onmouseout="outside()"
+                onmouseover="over('nine')">9</button>
+            <button class="button" onclick="location.href='clear'" onmouseout="outside()"
+                onmouseover="over('clear')">C</button>
+            <button class="button" onclick="location.href='zero'" onmouseout="outside()"
+                onmouseover="over('zero')">0</button>
+            <button class="button" onclick="location.href='enter'" onmouseout="outside()"
+                onmouseover="over('enter')">E</button>
+        </ul>
+    </div>
+
+    <!-- INCORRECT CARD NUMBER! -->
+    <!-- CARD NUMBER IS MISSING! -->
+    <!-- CARD NUMBER IS FULL! -->
+
+    <p id="error">
+        {{error}}
+
+    </p>
+
+
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BALANCE</title>
+    <link rel="stylesheet" href="{% static 'balance.css' %}">
+
+
+</head>
+
+<body>
+    
+    <!-- countdown timer -->    
+    <div id="timer"> </div>
+
+    <script>
+        var seconds = ""
+        var out = false
+        var timeOut
+
+        document.getElementById("timer").innerHTML = window.seconds;
+
+        function outside() {
+            out = true
+
+            seconds = ""
+            document.getElementById("timer").innerHTML = window.seconds;
+        }
+
+        async function over(funct) {
+            out = false
+
+            if (out) {
+                return
+            }
+
+            for (var i = 3; i > 0; i--) {
+                if (out) {
+                    return
+                }
+
+                seconds = i + "";
+                if (out) {
+                    return
+                }
+
+                if (out) {
+                    return
+                }
+
+                document.getElementById("timer").innerHTML = window.seconds;
+
+                for (var j = 0; j < 100; j++) {
+                    timeOut = await delay(10)
+                    if (out) {
+                        return
+                    }
+                }
+
+
+            }
+            if (out) {
+                return
+            }
+            location.href = funct
+            if (out) {
+                return
+            }
+        }
+
+        async function delay(delayInms) {
+            return new Promise(resolve => { setTimeout(() => { resolve(2); }, delayInms); });
+        }
+
+    </script>
+
+     <!-- pins and labels -->
+     <div id="wrap">
+
+        <p id="balance">
+
+            YOUR BALANCE IS {{balance}}!
+    
+        </p>
+
+    
+        <ul id="numpad4"> 
+            <button class="button back" onclick="location.href='backDeposit'" onmouseout="outside()"
+                onmouseover="over('backDeposit')">BACK</button>
+           
+        </ul>
+        
+    </div>
+
+
+</body>
+
+</html>

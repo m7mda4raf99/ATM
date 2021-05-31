@@ -1,0 +1,161 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WITHDRAW</title>
+    <link rel="stylesheet" href="{% static 'withdraw.css' %}">
+
+
+</head>
+
+<body>
+
+    <!-- countdown timer -->
+    <div id="timer"> </div>
+
+    <script>
+        var seconds = ""
+        var out = false
+        var timeOut
+
+        document.getElementById("timer").innerHTML = window.seconds;
+
+        function outside() {
+            out = true
+
+            seconds = ""
+            document.getElementById("timer").innerHTML = window.seconds;
+        }
+
+        async function over(funct) {
+            out = false
+
+            if (out) {
+                return
+            }
+
+            for (var i = 3; i > 0; i--) {
+                if (out) {
+                    return
+                }
+
+                seconds = i + "";
+                if (out) {
+                    return
+                }
+
+                if (out) {
+                    return
+                }
+
+                document.getElementById("timer").innerHTML = window.seconds;
+
+                for (var j = 0; j < 100; j++) {
+                    timeOut = await delay(10)
+                    if (out) {
+                        return
+                    }
+                }
+
+
+            }
+            if (out) {
+                return
+            }
+            location.href = funct
+            if (out) {
+                return
+            }
+        }
+
+        async function delay(delayInms) {
+            return new Promise(resolve => { setTimeout(() => { resolve(2); }, delayInms); });
+        }
+
+    </script>
+    
+    <!-- pins and labels -->
+    <div id="wrap">
+        <p id="text">
+
+            PLEASE ENTER THE AMOUNT YOU WANT TO WITHDRAW!
+    
+        </p>
+
+        <ul id="display">
+            <li>{{first}}</li>
+            <li>{{second}}</li>
+            <li>{{third}}</li>
+            <li>{{fourth}}</li>
+            <div class="clear"></div>
+        </ul>
+        <ul id="numpad">
+            <button class="button" onclick="location.href='oneWithdraw'" onmouseout="outside();"
+                onmouseover="over('oneWithdraw')">1</button>
+            <button class="button" onclick="location.href='twoWithdraw'" onmouseout="outside()"
+                onmouseover="over('twoWithdraw')">2</button>
+            <button class="button" onclick="location.href='threeWithdraw'" onmouseout="outside()"
+                onmouseover="over('threeWithdraw')">3</button>
+            <button class="button" onclick="location.href='fourWithdraw'" onmouseout="outside()"
+                onmouseover="over('fourWithdraw')">4</button>
+            <button class="button" onclick="location.href='fiveWithdraw'" onmouseout="outside()"
+                onmouseover="over('fiveWithdraw')">5</button>
+            <button class="button" onclick="location.href='sixWithdraw'" onmouseout="outside()"
+                onmouseover="over('sixWithdraw')">6</button>
+            <button class="button" onclick="location.href='sevenWithdraw'" onmouseout="outside()"
+                onmouseover="over('sevenWithdraw')">7</button>
+            <button class="button" onclick="location.href='eightWithdraw'" onmouseout="outside()"
+                onmouseover="over('eightWithdraw')">8</button>
+            <button class="button" onclick="location.href='nineWithdraw'" onmouseout="outside()"
+                onmouseover="over('nineWithdraw')">9</button>
+
+        </ul>
+        
+        <ul id="numpad2"> 
+            <button class="button" onclick="location.href='zeroWithdraw'" onmouseout="outside()"
+                onmouseover="over('zeroWithdraw')">0</button>
+            <button class="button" onclick="location.href='twoZeroWithdraw'" onmouseout="outside()"
+                onmouseover="over('twoZeroWithdraw')">00</button>
+            <button class="button" onclick="location.href='threeZeroWithdraw'" onmouseout="outside()"
+                onmouseover="over('threeZeroWithdraw')">000</button>
+
+        </ul>
+
+        <ul id="numpad3"> 
+            <button class="button" onclick="location.href='clearWithdraw'" onmouseout="outside()"
+                onmouseover="over('clearWithdraw')">CLEAR</button>
+            <button class="button" onclick="location.href='enterWithdraw'" onmouseout="outside()"
+                onmouseover="over('enterWithdraw')">ENTER</button>
+            
+        </ul>
+
+        <ul id="numpad4"> 
+            <button class="button back" onclick="location.href='backWithdraw'" onmouseout="outside()"
+                onmouseover="over('backWithdraw')">BACK</button>
+           
+        </ul>
+        
+        <p id="error">
+            {{error}}
+    
+        </p>
+    
+        <!-- AMOUNT IS WITHDRAWED SUCCESSFULLY! -->
+        <p id="success">
+            {{success}}
+    
+        </p>
+
+    </div>
+
+    
+
+</body>
+
+</html>
