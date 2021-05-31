@@ -185,7 +185,7 @@ def updateBalance(card_number, new_balance):
 
 
 def home(request):
-    # Thread(target = hand_recognition).start()
+    Thread(target = hand_recognition).start()
     # create()
 
     global pinEntered
